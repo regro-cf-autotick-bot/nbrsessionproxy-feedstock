@@ -1,19 +1,15 @@
-{% set name = "nbrsessionproxy" %}
 {% set version = "0.6.1" %}
-{% set file_ext = "tar.gz" %}
-{% set hash_type = "sha256" %}
-{% set hash_value = "cd21f01ea9127174b8fb15a6039a17ee7c1e6fc1d2867d54ec6a46e59da222f6" %}
 
 package:
-  name: '{{ name|lower }}'
+  name: nbrsessionproxy
   version: '{{ version }}'
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ file_ext }}
-  '{{ hash_type }}': '{{ hash_value }}'
+  url: https://pypi.io/packages/source/n/nbrsessionproxy/nbrsessionproxy-{{ version }}.tar.gz
+  sha256: cd21f01ea9127174b8fb15a6039a17ee7c1e6fc1d2867d54ec6a46e59da222f6
 
 build:
-  number: 1
+  number: 2
   skip: True  # [py2k]
   script: python -m pip install --no-deps --ignore-installed .
 
@@ -35,7 +31,7 @@ about:
   home: https://github.com/jupyterhub/nbrsessionproxy
   license: BSD 3-Clause
   license_family: BSD
-#  license_file: LICENSE
+  license_file: '{{ environ["RECIPE_DIR"] }}/LICENSE.txt'
   summary: Jupyter extension to proxy RStudio's rsession
 
 
