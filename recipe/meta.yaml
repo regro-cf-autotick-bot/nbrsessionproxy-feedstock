@@ -9,9 +9,9 @@ source:
   sha256: e097406453a83cc3663af66d569894a3340126c220bb73b9019879b8bcb105ff
 
 build:
-  number: 1000
+  number: 1001
   skip: True  # [py2k]
-  script: python -m pip install --no-deps --ignore-installed .
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   build:
